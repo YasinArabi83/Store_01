@@ -1,0 +1,33 @@
+﻿@page
+@model Store_01.Pages.Users.EditUserModel
+
+@{
+    ViewBag.Title = "Edit User";
+}
+
+<!-- Start Hero Section -->
+<partial name="../Shared/partial/Hero.cshtml" />
+<!-- End Hero Section -->
+<div class="container my-5">
+    <div asp-validation-summary="All" class="text-danger">
+
+    </div>
+
+    <form method="post">
+        <input type="hidden" asp-for="Id" />
+        <div class="form-floating mb-3">
+            <input asp-for="Email" type="email" class="form-control" id="floatingInputValue inputEmail3" placeholder="name@example.com" value="@Model.Email">
+            <label asp-for="Email" for="floatingInput">Email address</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input asp-for="UserName" type="text" class="form-control" id="floatingInputValue" placeholder="User Name" value="@Model.UserName">
+            <label asp-for ="UserName" for="floatingInput">User Name</label>
+        </div>
+        <div asp-for="UserName" class="form-floating">
+            <input asp-for="Password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label asp-for="Password" for="floatingPassword">Password</label>
+        </div>
+      
+        <button type="submit" class="btn btn-primary my-4">Sign in</button>
+    </form>
+</div>

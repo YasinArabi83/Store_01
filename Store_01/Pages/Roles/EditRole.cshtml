@@ -1,0 +1,27 @@
+﻿@page
+@model Store_01.Pages.Roles.EditRoleModel
+
+@{
+    ViewBag.Title = "Edit Role";
+}
+
+<!-- Start Hero Section -->
+<partial name="../Shared/partial/Hero.cshtml" />
+<!-- End Hero Section -->
+<div class="container my-5">
+    <div asp-validation-summary="All" class="text-danger">
+
+    </div>
+
+    <form method="post">
+        <input type="hidden" asp-for="Id" />
+       
+        <div class="form-floating mb-3">
+            <input asp-for="Name" type="text" class="form-control" id="floatingInputValue" placeholder="Name" value="@Model.Name">
+            <label asp-for ="Name" for="floatingInput"> Name</label>
+        </div>
+       
+      
+        <button type="submit" class="btn btn-primary my-4">Sign in</button>
+    </form>
+</div>

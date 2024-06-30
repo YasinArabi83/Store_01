@@ -1,0 +1,24 @@
+﻿@page
+@model Store_01.Pages.Roles.CreateRoleModel
+@{
+    ViewBag.Title = "Create Role";
+}
+<!-- Start Hero Section -->
+<partial name="../Shared/partial/Hero.cshtml" />
+<!-- End Hero Section -->
+<div class="container my-5">
+    <div asp-validation-summary="All" class="text-danger">
+
+    </div>
+
+    <form method="post">
+   
+        <div class="form-floating mb-3">
+            <input asp-for="Name" type="text" class="form-control" id="floatingInput" placeholder="User Name">
+            <label asp-for ="Name" for="floatingInput"> Name</label>
+        </div>
+        
+      
+        <button type="submit" class="btn btn-primary my-4">Create</button>
+    </form>
+</div>

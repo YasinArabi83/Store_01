@@ -1,0 +1,33 @@
+﻿@page
+@model Store_01.Pages.Users.IndexModel
+
+@{
+    ViewBag.Title = "User Manager";
+}
+
+<!-- Start Hero Section -->
+<partial name="../Shared/partial/Hero.cshtml" />
+<!-- End Hero Section -->
+<div class=" vh-100">
+    <div class="  row my-5">
+        <div class="card col" style="width: 18rem; ">
+            <img src="~/assets/images/undraw_chore_list_re_2lq8 (1).svg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">User List</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a asp-page="UserList" class="btn btn-primary">go to Users List</a>
+            </div>
+        </div>
+        <div class="card col" style="width: 18rem;">
+            <img src="~/assets/images/undraw_character_drawing_re_s2lj (1).svg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Create User</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a asp-page="CreateUser" class="btn btn-primary">Create User</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

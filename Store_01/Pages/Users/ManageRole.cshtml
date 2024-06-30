@@ -1,0 +1,54 @@
+﻿@page
+@model Store_01.Pages.Users.ManageRoleModel
+@{
+    ViewBag.Title = "User Role Manager";
+}
+<!-- Start Hero Section -->
+<partial name="../Shared/partial/Hero.cshtml" />
+<!-- End Hero Section -->
+
+<div style="height:100vh" class="container">
+
+
+    <h3 class="py-2">User Info</h3>
+    <table class="table  my-4">
+        <tr>
+            <th>Id : </th>
+            <td>@Model.curentUser.Id</td>
+
+        </tr>
+        <tr>
+            <th>User Name : </th>
+            <td>@Model.curentUser.UserName</td>
+
+        </tr>
+        <tr>
+            <th>Email : </th>
+            <td>@Model.curentUser.Email</td>
+        </tr>
+    </table>
+
+    <hr />
+
+    <h3>User Roles</h3>
+
+    <form method="post">
+         
+
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <input type="hidden" value="@Model.curentUser.Id" name="Id" />
+
+        @foreach(var item in Model.allRoles)
+        {
+
+
+            <div class="form-check form-switch">
+                <input class="form-check-input" name="Roles" type="checkbox" role="switch" id="flexSwitchCheckChecked" value="@item.Name" checked="@Model.userRoles.Contains(item.Name)">
+                <label class="form-check-label" for="flexSwitchCheckChecked">@item.Name</label>
+            </div>
+        }
+        <button type="submit" class="btn btn-primary">Update Roles</button>
+        <a asp-page="UserList" class="btn btn-secondary">Return</a>
+    </form>
+
+</div>

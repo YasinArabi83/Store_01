@@ -1,0 +1,89 @@
+﻿@page
+@model Store_01.Pages.Users.UserListModel
+
+@{
+	ViewBag.Title = "User List";
+}
+
+<!-- Start Hero Section -->
+<partial name="../Shared/partial/Hero.cshtml" />
+<!-- End Hero Section -->
+<div style="height:100vh" class="container">
+   
+    <table class="table table-hover table-bordered my-4">
+            <tr>
+                <td>Id</td>
+                <td>User Name</td>
+                <td>Email</td>
+                <td>Action</td>
+                <td>Roles</td>
+
+
+            </tr>
+        @if(Model.Users.Count()<1)
+        {
+            <tr>
+            <td colspan="4" class="table-danger">
+                There is no user
+            </td>
+            </tr>
+        }
+        else
+        {
+            foreach(var user in Model.Users)
+            {
+                <tr>
+                    <td>@user.Id</td>
+                    <td>@user.UserName</td>
+                    <td>@user.Email</td>
+                    <td >
+
+                        <form  method="post">
+                            <div class="btn-group">
+
+                                <a asp-page="EditUser" asp-route-id="@user.Id" class="btn btn-info">Edit</a>
+                                <a asp-page="ManageRole" asp-route-id="@user.Id" class="btn btn-secondary">Manage Role</a>
+
+                                <input type="hidden" name="id" value="@user.Id" />
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#@user.UserName">
+                                    remove
+                                </button>
+
+                            </div>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="@user.UserName" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">DELETE</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>Are you sure you want to delete @user.UserName?</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                <button type="submit" class="btn btn-primary">remove</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </form>
+                        
+                    </td>
+                    <td>
+                        @foreach(var item in Model.userRoles)
+                        {
+                            @item;
+                        }
+                    </td>
+
+
+                </tr>
+            }
+        }
+       
+    </table>
+    <a asp-page="CreateUser" class="btn btn-primary my-3"> Create</a>
+</div>
